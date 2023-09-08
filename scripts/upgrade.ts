@@ -1,12 +1,12 @@
 import { ethers, upgrades } from "hardhat";
-import { TimedRelease__factory } from "../../typechain-types";
+import { TimedRelease__factory } from "../typechain-types";
 
 async function main() {
   const TimeRelease: TimedRelease__factory = await ethers.getContractFactory(
     "TimedRelease"
   );
   const timeRelease = await upgrades.upgradeProxy(
-    "",
+    "0xC6734094F4Ad2FF321fBeF21F2C38101c05734b6",
     TimeRelease
   );
   console.log("Contract Upgraded", await timeRelease.getAddress());
